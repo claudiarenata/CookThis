@@ -265,10 +265,10 @@ class CameraFragment : Fragment() {
             for(i in 0 until (recipes!!.length())){
                 val item = recipes?.getJSONObject(i)
                 if (item?.getString("name")?.decapitalize() == label.decapitalize()){
-                    recipe.append("Looks like a $label ! \n")
-                    recipe.append("\nIngredients : \n")
-                    recipe.append(item.getString("ingredients"))
-                    recipe.append("\n \nRecipe : \n ${item.getString("url")}")
+                    recipe.append("Sepertinya itu $label ! \n")
+                    recipe.append("\nBahan-bahan : \n")
+                    recipe.append(item.getString("Bahan"))
+                    recipe.append("\n \nResep : \n ${item.getString("url")}")
                     return recipe.toString()
                 }
             }
