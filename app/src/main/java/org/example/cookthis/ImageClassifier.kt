@@ -16,6 +16,7 @@ import java.nio.MappedByteBuffer
 import java.nio.channels.FileChannel
 import java.util.*
 
+
 class ImageClassifier
 /** Initializes an `ImageClassifier`.  */
 @Throws(IOException::class)
@@ -61,10 +62,10 @@ internal constructor(activity: Activity) {
         tflite!!.run(imgData, labelProbArray)
         val endTime = SystemClock.uptimeMillis()
         Log.d(TAG, "Timecost to run model inference: " + java.lang.Long.toString(endTime - startTime))
-
         val maxIndex = labelProbArray!![0].withIndex().maxBy { it.value }?.index
         return labelList[maxIndex!!]
     }
+
 
     /** Closes tflite to release resources.  */
     fun close() {
@@ -138,5 +139,6 @@ internal constructor(activity: Activity) {
 
         private val IMAGE_MEAN = 128
         private val IMAGE_STD = 128.0f
+
     }
 }
